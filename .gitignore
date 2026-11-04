@@ -7,6 +7,5 @@ node_modules/
 *.env
 
 # Journals / editor junk
-*.excalidraw
 .DS_Store
 Thumbs.db
