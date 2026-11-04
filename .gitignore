@@ -1,0 +1,12 @@
+node_modules/
+
+# Local env files — never commit real keys
+.env
+.env.local
+.env.*.local
+*.env
+
+# Journals / editor junk
+*.excalidraw
+.DS_Store
+Thumbs.db
