@@ -1,13 +1,9 @@
 import { groq } from '@ai-sdk/groq'
-import { createOpenRouter } from '@openrouter/ai-sdk-provider'
+import { openrouter } from '@openrouter/ai-sdk-provider';
 import { generateText, LanguageModel } from 'ai'
 import { env } from './env'
 
 const groqModel = groq(env.GROQ_MODEL)
-
-const openrouter = createOpenRouter({
-  apiKey: env.OPENROUTER_API_KEY,
-})
 
 const openrouterModel = openrouter(env.OPENROUTER_MODEL)
 

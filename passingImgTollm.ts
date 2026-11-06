@@ -2,7 +2,7 @@ import { generateText } from 'ai'
 import { env } from './env'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
-import { createOpenRouter } from '@openrouter/ai-sdk-provider'
+import { openrouter } from '@openrouter/ai-sdk-provider';
 
 const systemPrompt =
   `You will receive an image.` +
@@ -11,10 +11,6 @@ const systemPrompt =
   `Use adjectives only when necessary.` +
   `Do not pass 160 characters.` +
   `Use simple language.`
-
-const openrouter = createOpenRouter({
-  apiKey: env.OPENROUTER_API_KEY,
-})
 
 const openrouterModel = openrouter(env.OPENROUTER_MODEL)
 
