@@ -13,6 +13,15 @@ Learning project for the [Vercel AI SDK](https://ai-sdk.dev) (TypeScript), with 
 | `preservingChatHistory.ts` | Building a conversation with model messages |
 | `dynamicModels.ts` | Swapping providers (Groq / OpenRouter) at runtime |
 | `server.ts` | Hono API server exposing a `/api/get-completions` endpoint |
+| `passingImgTollm.ts` | Passing images (URL or file) to a multimodal model |
+| `structuredOutputs.ts` | Structured object output with Zod schema |
+| `streamStructuredOutputs.ts` | Streaming structured object output |
+| `commentClassifier.ts` | Classification with `Output.choice` (positive / neutral / negative) |
+| `runningLocalModels.ts` | Running local models via `createOpenAICompatible` (LM Studio) |
+| `toolCalling.ts` | Tool calling with `generateText` |
+| `agenticFeedbackLoop.ts` | Agent loop with tools + `streamText` + `isStepCount` |
+| `structuredOutputsFromPdfs.ts` | Extracting structured data from a PDF |
+| `embeddingsAndVectorDbs.ts` | Embeddings + vector search with `embed` / `embedMany` / `cosineSimilarity` |
 
 ## Setup
 
@@ -22,13 +31,17 @@ Learning project for the [Vercel AI SDK](https://ai-sdk.dev) (TypeScript), with 
 bun install
 ```
 
-2. Copy the example env file and fill in your keys:
+2. Create a `.env` with these variables:
 
-```bash
-cp .env.example .env
+```
+GROQ_API_KEY=
+GROQ_MODEL=
+OPENROUTER_API_KEY=
+OPENROUTER_MODEL=
+OPENROUTER_EMBEDDING_MODEL=
 ```
 
-3. Export the variables before running (the `.env` file uses `export` lines):
+3. Export the variables before running:
 
 ```bash
 source .env
@@ -47,6 +60,10 @@ The server example starts on port `3000` at `0.0.0.0` and self-tests by calling 
 ## Tools
 
 - **Bun** — package manager / runtime
-- **tsx** — TypeScript runner for Node
-- **Zod** — env validation
+- **tsx** — TypeScript runner
+- **Zod** — schema validation (env + structured outputs)
 - **Hono** — HTTP server
+- **ai** — Vercel AI SDK
+- **@ai-sdk/groq** — Groq provider
+- **@openrouter/ai-sdk-provider** — OpenRouter provider
+- **@ai-sdk/openai-compatible** — OpenAI-compatible provider (local models)
